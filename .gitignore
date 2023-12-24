@@ -1,0 +1,6 @@
+venv
+GxxG/db.sqlite3
+*.log
+*.pot
+*.pyc
+__pychache__/
