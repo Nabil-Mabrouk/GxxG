@@ -4,3 +4,4 @@ GxxG/db.sqlite3
 *.pot
 *.pyc
 __pychache__/
+migrations

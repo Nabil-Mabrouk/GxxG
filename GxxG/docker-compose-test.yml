@@ -2,11 +2,11 @@ version: '3.11'
 services:
   web:
     build: .
-    command: python /usr/src/app/manage.py runserver 0.0.0.0:8000
+    command: python /usr/src/app/manage.py runserver 0.0.0.0:8001
     volumes:
       - .:/usr/src/app
     ports:
-      - 8000:8000
+      - 8001:8001
     depends_on:
       - db
     networks:

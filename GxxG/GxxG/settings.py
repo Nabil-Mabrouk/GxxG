@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'landing.apps.LandingConfig',
+    'allauth', # new
+    'allauth.account', # new
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Downloaded Middleware
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'GxxG.urls'
@@ -142,3 +146,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django-allauth config
+SITE_ID = 1 # new
+AUTH_USER_MODEL = 'users.CustomUser' # new
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend', # new
+)
+
+# if SMP server is not set yet send emails to the console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+
+LOGIN_REDIRECT_URL = 'landing-index'
+ACCOUNT_LOGOUT_REDIRECT = 'landing-index'
+
+ACCOUNT_USERNAME_REQUIRED = False # new
+ACCOUNT_AUTHENTICATION_METHOD = 'email' # new
+ACCOUNT_EMAIL_REQUIRED = True # new
+ACCOUNT_UNIQUE_EMAIL = True # new
