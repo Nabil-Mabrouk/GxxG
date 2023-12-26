@@ -1,6 +1,6 @@
 version: '3.11'
 services:
-  web:
+  web_gxxg:
     build: .
     command: python /usr/src/app/manage.py runserver 0.0.0.0:8000
     volumes:
@@ -8,17 +8,17 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - db
+      - db_gxxg
     networks:
       - gxxg_network
   
-  db:
+  db_gxxg:
     image: postgres:latest
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_gxxg_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  postgres_gxxg_data:
   
 networks:
   gxxg_network:

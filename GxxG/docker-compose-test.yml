@@ -1,6 +1,6 @@
 version: '3.11'
 services:
-  web:
+  web_gxxg_test:
     build: .
     command: python /usr/src/app/manage.py runserver 0.0.0.0:8001
     volumes:
@@ -8,17 +8,17 @@ services:
     ports:
       - 8001:8001
     depends_on:
-      - db
+      - db_gxxg_test
     networks:
       - gxxg_test_network
   
-  db:
+  db_gxxg_test:
     image: postgres:latest
     volumes:
-      - postgres_data:/var/lib/postgresql/data/gxxg/
+      - postgres_gxxg_test_data:/var/lib/postgresql/data/gxxg/
 
 volumes:
-  postgres_data: 
+  postgres_gxxg_test_data: 
 
 networks:
   gxxg_test_network:
