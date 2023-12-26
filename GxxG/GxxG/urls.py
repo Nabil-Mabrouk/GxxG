@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', include('pages.urls')), # new
     path('', include('landing.urls')), # new
+    path('accounts/', include('allauth.urls')),
 ]

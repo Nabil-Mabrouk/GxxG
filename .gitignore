@@ -5,3 +5,4 @@ GxxG/db.sqlite3
 *.pyc
 __pychache__/
 migrations
+.env

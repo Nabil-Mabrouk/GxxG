@@ -14,6 +14,8 @@ services:
   
   db_gxxg_test:
     image: postgres:latest
+    networks:
+      - gxxg_test_network
     volumes:
       - postgres_gxxg_test_data:/var/lib/postgresql/data/gxxg/
 
