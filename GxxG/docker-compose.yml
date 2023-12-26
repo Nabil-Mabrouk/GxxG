@@ -16,7 +16,7 @@ services:
       -postgres_data:/var/lib/postgresql/data/gxxg/
 
   volumes:
-    postgres_data
+    postgres_data:
   
   networks:
     gxxg_network:
