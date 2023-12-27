@@ -15,12 +15,21 @@ services:
       - .env
     volumes:
       - .:/usr/src/app
-      - static_volume:/usr/src/app/static
-      - media_volume:/usr/src/app/media
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/mediafiles
     ports:
       - 8000:8000
     depends_on:
       - db
+    nginx:
+      build: ./nginx
+      working_volumes:
+        - static_volume:/usr/src/app/staticfiles
+        - media_volume:/usr/src/app/mediafiles
+      ports:
+        - "8000:80"
+      depends_on:
+        - web
 volumes:
   postgres_data:
   static_volume:
