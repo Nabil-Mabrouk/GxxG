@@ -26,6 +26,7 @@ services:
     container_name: nginx_proxy
     volumes:
       - ./nginx/default.conf:/etc/nginx/sites-enabled/default.conf
+      - nginx_logs:/var/log/nginx  # Volume for Nginx logs
 
     ports:
       - "80:80"
@@ -35,3 +36,4 @@ volumes:
   postgres_data:
   static_volume:
   media_volume:
+  nginx_logs:  # Define the volume for Nginx logs
