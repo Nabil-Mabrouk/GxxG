@@ -25,7 +25,7 @@ services:
     image: nginx:latest
     container_name: nginx_proxy
     volumes:
-      - ./nginx/cryptazy.com:/etc/nginx/sites-enabled/cryptazy.com
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
     ports:
       - "80:80"
