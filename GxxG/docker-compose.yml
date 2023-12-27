@@ -10,14 +10,18 @@ services:
       - postgres_data:/var/lib/postgresql/data
   web:
     build: .
-    command: ["sh", "-c", "python3 /usr/src/app/manage.py makemigrations; python3 /usr/src/app/manage.py migrate; python3 /usr/src/app/manage.py runserver 0.0.0.0:8000"]
+    command: ["sh", "-c", "python3 /usr/src/app/manage.py makemigrations; python3 /usr/src/app/manage.py migrate; python3 manage.py collectstatic --no-input; gunicorn GxxG.wsgi:application --bind 0.0.0.0:8000"]
     env_file:
       - .env
     volumes:
       - .:/usr/src/app
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
     ports:
       - 8000:8000
     depends_on:
       - db
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:
