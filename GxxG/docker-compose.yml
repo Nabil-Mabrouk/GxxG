@@ -28,6 +28,8 @@ services:
       #- ./nginx/default.conf:/etc/nginx/sites-enabled/default.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - nginx_logs:/var/log/nginx  # Volume for Nginx logs
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/mediafiles
 
     ports:
       - "80:80"
