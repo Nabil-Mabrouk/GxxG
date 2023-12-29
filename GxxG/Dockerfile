@@ -7,12 +7,11 @@ ENV PYTHONUNBUFFERED 1
 # Set work directory
 WORKDIR /usr/src/app
 
-COPY requirement.txt ./
+# Copy project
+COPY . .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirement.txt
 
-# Copy project
-COPY . .
 
 
