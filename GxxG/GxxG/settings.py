@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['www.cryptazy.com', 'cryptazy.com', 'localhost']
+ALLOWED_HOSTS = ['www.cryptazy.com', 'cryptazy.com', 'localhost', '92.91.253.5']
 
 
 # Application definition
