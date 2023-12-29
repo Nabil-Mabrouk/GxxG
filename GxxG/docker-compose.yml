@@ -19,6 +19,7 @@ services:
       - media_volume:/usr/src/app/mediafiles
     ports:
       - 8000:8000
+    user: "www-data:www-data" 
     depends_on:
       - db
 volumes:
