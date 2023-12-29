@@ -14,7 +14,7 @@ services:
     env_file:
       - .env
     volumes:
-      #- .:/usr/src/app
+      - .:/usr/src/app
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/mediafiles
     ports:
